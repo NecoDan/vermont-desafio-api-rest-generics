@@ -22,7 +22,7 @@ public class SourceController {
     private static final String URL_REPOSITORIO_GIT_HUB = "https://github.com/NecoDan/vermont-desafio-api-rest-generics";
 
     @ApiOperation(value = "Acessar o repósitório no GitHub pelo link externo")
-    @GetMapping("/source")
+    @GetMapping("/sources")
     public void getSouceInGitHub(HttpServletResponse httpServletResponse) {
         log.info("Requisição efetuada projeto GITHUB: " + URL_REPOSITORIO_GIT_HUB);
         httpServletResponse.setHeader("Location", URL_REPOSITORIO_GIT_HUB);
