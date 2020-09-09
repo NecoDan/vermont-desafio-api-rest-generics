@@ -63,7 +63,7 @@ public class PessoaService implements IPessoaService {
     @Transactional(value = Transactional.TxType.NEVER)
     public Pessoa atualizar(UUID idPessoa, Pessoa pessoa) throws ServiceException {
         if (Objects.isNull(idPessoa))
-            throw new ServiceException("{ID} referente ao Pedido encontra-se inválido e/ou inexistente {NULL}.");
+            throw new ServiceException("{ID} referente a Pessoa encontra-se inválida e/ou inexistente {NULL}.");
 
         Pessoa pessoaAtualizar = recuperarPorId(idPessoa).map(p -> getMountPessoaAtualizar(p, pessoa)).orElse(null);
 
