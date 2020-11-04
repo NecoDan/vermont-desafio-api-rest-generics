@@ -25,7 +25,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
@@ -34,6 +37,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
@@ -68,6 +72,37 @@ public class PessoaControllerWebMvcTest {
                 .modules(module)
                 .featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
                 .build();
+    }
+
+    @Test
+    public void deveRetornarStatus201EProducerJSONAoCriarPessoaMethodPOSTSecondary() throws Exception {
+        log.info("\n#TEST: deveRetornarStatus201EProducerJSONAoCriarPessoaMethodPOSTSecondary: ");
+
+        // -- 01_Cenário
+        Pessoa pessoa = constroiPessoaValida(null);
+
+        // -- 02_Ação
+        given(pessoaService.salvar(pessoa)).willReturn(pessoa);
+
+        ResultActions responseResultActions = mockMvc.perform(
+                MockMvcRequestBuilders
+                        .post(BASE_URL)
+                        .content(getJsonValuePessoaFromPessoaObj(pessoa))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isCreated());
+
+        // -- 03_Verificação_Validação
+        verify(pessoaService).salvar(any(Pessoa.class));
+
+        MvcResult mvcResult = responseResultActions.andReturn();
+        String conteudoJSONResult = mvcResult.getResponse().getContentAsString();
+        Pessoa pessoaResult = getPessoaDeserializeFromConteudoJSON(conteudoJSONResult);
+
+        assertTrue(Objects.equals(pessoa.getCpf(), pessoaResult.getCpf()) && Objects.equals(pessoa.getNome(), pessoaResult.getNome()));
+
+        String statusResponse = String.valueOf(responseResultActions.andReturn().getResponse().getStatus());
+        log.info("#TEST_RESULT_STATUS: ".concat((statusResponse.isEmpty()) ? " " : HttpStatus.valueOf(Integer.parseInt(statusResponse)).toString()));
+        toStringEnd(responseResultActions, MediaType.APPLICATION_JSON);
     }
 
     @Test
@@ -177,6 +212,10 @@ public class PessoaControllerWebMvcTest {
         pessoa.ativado();
         pessoa.gerarDataCorrente();
         return pessoa;
+    }
+
+    private Pessoa getPessoaDeserializeFromConteudoJSON(String json) throws JsonProcessingException {
+        return this.objectMapper.readValue(json, Pessoa.class);
     }
 
     private String getJsonValuePessoaFromPessoaObj(Pessoa pessoa) throws JsonProcessingException {

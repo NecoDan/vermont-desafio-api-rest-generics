@@ -1,4 +1,4 @@
-package br.com.vermont.desafio.api.rest.generics.service;
+package br.com.vermont.desafio.api.rest.generics.service.pessoa;
 
 
 import br.com.vermont.desafio.api.rest.generics.model.dominio.Pessoa;
