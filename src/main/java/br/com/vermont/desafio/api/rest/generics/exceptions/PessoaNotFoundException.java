@@ -1,4 +1,4 @@
-package br.com.vermont.desafio.api.rest.generics.controller.advice;
+package br.com.vermont.desafio.api.rest.generics.exceptions;
 
 import java.util.UUID;
 

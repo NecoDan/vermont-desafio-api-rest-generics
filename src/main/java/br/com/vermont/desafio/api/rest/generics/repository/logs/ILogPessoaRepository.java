@@ -1,4 +1,4 @@
-package br.com.vermont.desafio.api.rest.generics.repository.log;
+package br.com.vermont.desafio.api.rest.generics.repository.logs;
 
 import br.com.vermont.desafio.api.rest.generics.model.dominio.LogPessoa;
 import br.com.vermont.desafio.api.rest.generics.model.dominio.Pessoa;

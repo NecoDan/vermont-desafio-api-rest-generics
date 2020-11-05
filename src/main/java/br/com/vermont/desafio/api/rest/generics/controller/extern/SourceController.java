@@ -1,4 +1,4 @@
-package br.com.vermont.desafio.api.rest.generics.controller;
+package br.com.vermont.desafio.api.rest.generics.controller.extern;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -4,7 +4,7 @@ import br.com.vermont.desafio.api.rest.generics.model.dominio.LogPessoa;
 import br.com.vermont.desafio.api.rest.generics.model.dominio.Pessoa;
 import br.com.vermont.desafio.api.rest.generics.model.dominio.TipoOperacaoLog;
 import br.com.vermont.desafio.api.rest.generics.model.enums.TipoOperacaoLogEnum;
-import br.com.vermont.desafio.api.rest.generics.repository.log.ILogPessoaRepository;
+import br.com.vermont.desafio.api.rest.generics.repository.logs.ILogPessoaRepository;
 import br.com.vermont.desafio.api.rest.generics.util.exceptions.ServiceException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

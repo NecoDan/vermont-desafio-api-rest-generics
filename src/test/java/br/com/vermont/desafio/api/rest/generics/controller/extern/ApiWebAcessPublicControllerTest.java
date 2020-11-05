@@ -1,4 +1,4 @@
-package br.com.vermont.desafio.api.rest.generics.controller;
+package br.com.vermont.desafio.api.rest.generics.controller.extern;
 
 import br.com.vermont.desafio.api.rest.generics.model.enderecos.Endereco;
 import br.com.vermont.desafio.api.rest.generics.util.FormatterUtil;

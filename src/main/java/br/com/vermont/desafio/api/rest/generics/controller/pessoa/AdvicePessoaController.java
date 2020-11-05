@@ -1,5 +1,6 @@
-package br.com.vermont.desafio.api.rest.generics.controller.advice;
+package br.com.vermont.desafio.api.rest.generics.controller.pessoa;
 
+import br.com.vermont.desafio.api.rest.generics.exceptions.PessoaNotFoundException;
 import br.com.vermont.desafio.api.rest.generics.util.exceptions.ResourceStatusNotFoundException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpHeaders;
