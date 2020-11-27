@@ -1,21 +1,34 @@
 package br.com.vermont.desafio.api.rest.generics.model.booking;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import br.com.vermont.desafio.api.rest.generics.util.domain.AbstractEntity;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+import lombok.experimental.Tolerate;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
+@ToString
+@SuperBuilder
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class BookingModel {
-    private Long id;
+@EqualsAndHashCode(callSuper = true)
+@Entity
+@Table(name = "sp10_booking", schema = "vermont_services")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class BookingModel extends AbstractEntity {
+
+    @Tolerate
+    public BookingModel() {
+        super();
+    }
+
     private String reserveName;
     private LocalDateTime checkIn;
     private LocalDateTime checkOut;
-    private LocalDateTime dtLancamento;
     private int numberGuests;
 }

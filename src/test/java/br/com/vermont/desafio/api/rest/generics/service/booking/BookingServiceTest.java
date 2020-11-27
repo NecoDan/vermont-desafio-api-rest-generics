@@ -1,7 +1,7 @@
 package br.com.vermont.desafio.api.rest.generics.service.booking;
 
 import br.com.vermont.desafio.api.rest.generics.model.booking.BookingModel;
-import br.com.vermont.desafio.api.rest.generics.repository.booking.BookingRepository;
+import br.com.vermont.desafio.api.rest.generics.repository.booking.IBookingRepository;
 import br.com.vermont.desafio.api.rest.generics.util.RandomicoUtil;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.junit.Assert.assertEquals;
 
@@ -33,7 +34,7 @@ public class BookingServiceTest {
     BookingService bookingService;
 
     @MockBean
-    BookingRepository bookingRepository;
+    IBookingRepository bookingRepository;
 
     @Before
     public void setUp() {
@@ -42,7 +43,7 @@ public class BookingServiceTest {
 
         String nomeClienteReserva = "Daniel";
         BookingModel bookingModel = BookingModel.builder()
-                .id(RandomicoUtil.gerarValorRandomicoLong())
+                .id(UUID.randomUUID())
                 .checkIn(dataCheckIn)
                 .checkOut(dataCheckOut)
                 .reserveName(nomeClienteReserva)

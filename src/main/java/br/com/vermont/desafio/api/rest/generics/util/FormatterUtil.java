@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
@@ -29,6 +30,17 @@ public final class FormatterUtil {
 
     public static String toStringLocalDateFormatada(LocalDate data) {
         return toStringLocalDateFormatadaPor(data, "dd/MM/yyyy");
+    }
+
+    public static String toStringLocalDateTimeFormatada(LocalDateTime data) {
+        return toStringLocalDateTimeFormatadaPor(data, "dd/MM/yyyy HH:mm:ss");
+    }
+
+    public static String toStringLocalDateTimeFormatadaPor(LocalDateTime data, String strFormato) {
+        if (Objects.isNull(data))
+            throw new IllegalArgumentException(MENSAGEM_VALIDACAO);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(strFormato);
+        return data.format(formatter);
     }
 
     public static String formatConteudoJSONFrom(String conteudo) {
