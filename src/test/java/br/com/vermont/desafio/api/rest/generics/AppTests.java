@@ -1,12 +1,12 @@
 package br.com.vermont.desafio.api.rest.generics;
 
-import br.com.vermont.desafio.api.rest.generics.model.dominio.LogPessoa;
-import br.com.vermont.desafio.api.rest.generics.model.dominio.Pessoa;
-import br.com.vermont.desafio.api.rest.generics.model.dominio.TipoOperacaoLog;
-import br.com.vermont.desafio.api.rest.generics.model.enums.TipoSexo;
-import br.com.vermont.desafio.api.rest.generics.repository.logs.ILogPessoaRepository;
-import br.com.vermont.desafio.api.rest.generics.repository.logs.ITipoOperacaoLogRepository;
-import br.com.vermont.desafio.api.rest.generics.repository.negocio.IPessoaRepository;
+import br.com.vermont.desafio.api.rest.generics.log.model.LogPessoa;
+import br.com.vermont.desafio.api.rest.generics.pessoa.model.Pessoa;
+import br.com.vermont.desafio.api.rest.generics.log.model.TipoOperacaoLog;
+import br.com.vermont.desafio.api.rest.generics.pessoa.model.TipoSexo;
+import br.com.vermont.desafio.api.rest.generics.log.repository.ILogPessoaRepository;
+import br.com.vermont.desafio.api.rest.generics.log.repository.ITipoOperacaoLogRepository;
+import br.com.vermont.desafio.api.rest.generics.pessoa.repository.IPessoaRepository;
 import br.com.vermont.desafio.api.rest.generics.util.GeraCpfUtil;
 import br.com.vermont.desafio.api.rest.generics.util.StringUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;

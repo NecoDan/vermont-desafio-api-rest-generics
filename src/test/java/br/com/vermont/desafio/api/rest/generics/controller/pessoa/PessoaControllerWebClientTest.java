@@ -1,9 +1,11 @@
 package br.com.vermont.desafio.api.rest.generics.controller.pessoa;
 
 
-import br.com.vermont.desafio.api.rest.generics.model.dominio.Pessoa;
-import br.com.vermont.desafio.api.rest.generics.model.enums.TipoSexo;
-import br.com.vermont.desafio.api.rest.generics.service.negocio.PessoaService;
+import br.com.vermont.desafio.api.rest.generics.config.AdviceControllerConfig;
+import br.com.vermont.desafio.api.rest.generics.pessoa.controller.PessoaController;
+import br.com.vermont.desafio.api.rest.generics.pessoa.model.Pessoa;
+import br.com.vermont.desafio.api.rest.generics.pessoa.model.TipoSexo;
+import br.com.vermont.desafio.api.rest.generics.pessoa.service.PessoaService;
 import br.com.vermont.desafio.api.rest.generics.util.FormatterUtil;
 import br.com.vermont.desafio.api.rest.generics.util.GeraCpfUtil;
 import br.com.vermont.desafio.api.rest.generics.util.RandomicoUtil;
@@ -55,7 +57,7 @@ public class PessoaControllerWebClientTest {
 
         webTestClient = WebTestClient
                 .bindToController(pessoaController)
-                .controllerAdvice(AdvicePessoaController.class)
+                .controllerAdvice(AdviceControllerConfig.class)
                 .build();
 
         JavaTimeModule module = new JavaTimeModule();

@@ -1,6 +1,6 @@
 package br.com.vermont.desafio.api.rest.generics.controller_wiremock;
 
-import br.com.vermont.desafio.api.rest.generics.model.dominio.Pessoa;
+import br.com.vermont.desafio.api.rest.generics.pessoa.model.Pessoa;
 import br.com.vermont.desafio.api.rest.generics.util.GeraCpfUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

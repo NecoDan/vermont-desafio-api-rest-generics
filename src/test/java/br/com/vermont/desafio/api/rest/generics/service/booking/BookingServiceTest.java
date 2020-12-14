@@ -1,7 +1,8 @@
 package br.com.vermont.desafio.api.rest.generics.service.booking;
 
-import br.com.vermont.desafio.api.rest.generics.model.booking.BookingModel;
-import br.com.vermont.desafio.api.rest.generics.repository.booking.IBookingRepository;
+import br.com.vermont.desafio.api.rest.generics.booking.service.BookingService;
+import br.com.vermont.desafio.api.rest.generics.booking.model.BookingModel;
+import br.com.vermont.desafio.api.rest.generics.booking.repository.IBookingRepository;
 import br.com.vermont.desafio.api.rest.generics.util.RandomicoUtil;
 import org.junit.Before;
 import org.junit.Test;
